@@ -53,6 +53,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 5,
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 10,
+                    ),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.black,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ProfileScreen(),
+                                  ));
+                            },
+                            icon: const Icon(Icons.person)),
+                      ),
+                      title: const Text("Name"),
+                      subtitle: const Text('Details'),
+                    ),
+                  );
+                },
+              )
             ],
           ),
         ),

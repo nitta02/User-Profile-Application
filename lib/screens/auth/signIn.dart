@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_profile/screens/auth/register.dart';
+import 'package:user_profile/screens/home.dart';
 import 'package:user_profile/utils/colors.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -113,19 +114,25 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      // auth
-                      //     .signInWithEmailAndPassword(
-                      //         email: emailController.text,
-                      //         password: passwordController.text)
-                      //     .then((value) {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => const HomeScreen(),
-                      //       ));
-                      // });
-                    }
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ));
+
+                    // if (formKey.currentState!.validate()) {
+                    //   // auth
+                    //   //     .signInWithEmailAndPassword(
+                    //   //         email: emailController.text,
+                    //   //         password: passwordController.text)
+                    //   //     .then((value) {
+                    //   //   Navigator.push(
+                    //   //       context,
+                    //   //       MaterialPageRoute(
+                    //   //         builder: (context) => const HomeScreen(),
+                    //   //       ));
+                    //   // });
+                    // }
                   },
                   child: Container(
                     height: size.height * 0.065,

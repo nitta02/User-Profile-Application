@@ -21,17 +21,27 @@ class _SplashScreenState extends State<SplashScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        color: backgroundColor5,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            backgroundColor1,
+            backgroundColor2,
+            backgroundColor3,
+          ]),
+        ),
         height: size.height,
         width: size.width,
         child: Container(
           height: size.height * 0.33,
           width: size.width,
           decoration: BoxDecoration(
-            color: primaryColor,
+            gradient: LinearGradient(colors: [
+              primaryColor,
+              backgroundColor2,
+              primaryColor,
+            ]),
             image: const DecorationImage(
               image: AssetImage(
-                "assets/images/img1.png",
+                "assets/logo/User.png",
               ),
             ),
           ),

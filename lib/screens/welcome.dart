@@ -1,145 +1,147 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:user_profile/screens/home.dart';
+import 'package:user_profile/screens/auth/register.dart';
+import 'package:user_profile/screens/auth/signIn.dart';
 import 'package:user_profile/utils/colors.dart';
 
-class WelcomeRegisterScreen extends StatefulWidget {
-  const WelcomeRegisterScreen({super.key});
-
-  @override
-  State<WelcomeRegisterScreen> createState() => _WelcomeRegisterScreenState();
-}
-
-class _WelcomeRegisterScreenState extends State<WelcomeRegisterScreen> {
-  final nameController = TextEditingController();
-  final passwordController = TextEditingController();
-  final emailController = TextEditingController();
-  final ageController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+class MySplashScreen extends StatelessWidget {
+  const MySplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          backgroundColor1,
-          backgroundColor2,
-          backgroundColor3,
-        ])),
-        child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: size.height * 0.045,
-              ),
-              Column(
-                children: [
-                  const Text(
-                    'USER DATA',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
+        color: backgroundColor1,
+        height: size.height,
+        width: size.width,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                height: size.height * 0.53,
+                width: size.width,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40),
                   ),
-                  Text(
-                    'Please Enter The Details',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: textColor2,
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.05,
-                  ),
-                  TextFormField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        hintText: 'Name',
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 20,
-                          horizontal: 25,
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.018,
-                  ),
-                  TextFormField(
-                    controller: ageController,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        hintText: 'Age',
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 20,
-                          horizontal: 25,
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: size.height * 0.03,
-              ),
-              InkWell(
-                onTap: () {
-                  // if (formKey.currentState!.validate()) {
-                  //   auth
-                  //       .createUserWithEmailAndPassword(
-                  //           email: emailController.text.toString(),
-                  //           password: passwordController.text.toString())
-                  //       .then((value) {
-                  //   });
-                  // }
-
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ));
-                },
-                child: Container(
-                  height: size.height * 0.065,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: buttonColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Save',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  color: primaryColor,
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      "assets/logo/User.png",
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: size.height * 0.025,
+            ),
+            Positioned(
+              top: size.height * 0.6,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "Discover The\nUser Here",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40,
+                          color: textColor1,
+                          height: 1.2),
+                    ),
+                    const SizedBox(height: 25),
+                    Text(
+                      "Explore all the most exiting user data\nbased on your interest And find more",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: textColor2,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.07),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50,
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisterScreen(),
+                                    ));
+                              },
+                              child: Container(
+                                height: size.height * 0.08,
+                                width: size.width / 3,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  // border: Border.all()
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Register",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Spacer(
+                              flex: 30,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignInScreen(),
+                                    ));
+                              },
+                              child: Container(
+                                height: size.height * 0.08,
+                                width: size.width / 3,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  // border: Border.all()
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

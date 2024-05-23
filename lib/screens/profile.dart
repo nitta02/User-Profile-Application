@@ -23,32 +23,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ])),
         child: ListView(
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: IconButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(CupertinoIcons.back)),
+                IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    // auth.signOut().then((value) {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => const MySplashScreen(),
+                    //       ));
+                    // });
                   },
-                  icon: const Icon(CupertinoIcons.back)),
+                  icon: const Icon(Icons.logout_outlined),
+                ),
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                // auth.signOut().then((value) {
-                //   Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => const MySplashScreen(),
-                //       ));
-                // });
-              },
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Sign Out'),
-                  Icon(Icons.logout_outlined),
-                ],
-              ),
-            )
+            const SizedBox(
+              height: 30,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.black,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProfileScreen(),
+                            ));
+                      },
+                      icon: const Icon(Icons.person)),
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                const Text("Name"),
+              ],
+            ),
           ],
         ),
       ),

@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:user_profile/screens/auth/signIn.dart';
+import 'package:user_profile/screens/welcome.dart';
 
 class SplashService {
   void isLogin(BuildContext context) {
@@ -25,7 +25,7 @@ class SplashService {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SignInScreen(),
+            builder: (context) => const MySplashScreen(),
           ));
     });
   }
