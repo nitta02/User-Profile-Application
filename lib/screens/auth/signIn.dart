@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_profile/screens/auth/register.dart';
-import 'package:user_profile/screens/main_screen.dart';
+import 'package:user_profile/screens/main_btm_screen.dart';
 import 'package:user_profile/utils/colors.dart';
 
 class SignInScreen extends StatefulWidget {

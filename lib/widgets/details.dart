@@ -27,11 +27,38 @@ class DetailsWidgets extends StatelessWidget {
           child: Container(
             height: size.height * 0.25,
             width: double.infinity,
+            padding: const EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 10,
+            ),
             decoration: BoxDecoration(
                 border: Border.all(
                   width: 0.1,
                 ),
                 borderRadius: BorderRadius.circular(11)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Column(
+                  children: [
+                    Text('Name'),
+                    Text("Details"),
+                  ],
+                ),
+                ElevatedButton(
+                  style: const ButtonStyle(
+                      shape: WidgetStatePropertyAll(BeveledRectangleBorder())),
+                  onPressed: () {},
+                  child: const Text(
+                    'Check More',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const Align(

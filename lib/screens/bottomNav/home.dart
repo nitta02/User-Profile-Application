@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:user_profile/screens/widgets/details.dart';
+import 'package:user_profile/widgets/details.dart';
 import 'package:user_profile/utils/colors.dart';
 
 class HomeScreen extends StatefulWidget {
